@@ -34,15 +34,9 @@ public class App {
         System.out.println("You selected: " + selection);
 
         if (selection.equals("1")) {
-            try (FileReader reader = new FileReader("CTCI.txt")) {
-                int character;
-                while ((character = reader.read()) != -1) {
-                    System.out.print((char) character);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            ReaderForCTCI reader = new ReaderForCTCI();
+            Thread thread = new Thread(reader);
+            thread.start();
         }
     }
 }
